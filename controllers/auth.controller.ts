@@ -75,7 +75,7 @@ export async function login(req: Request, res: Response) {
     })
 
     //Destructuring
-    console.log(req.body)
+    // console.log(req.body)
     const { email, password }: User = req.body
 
     try {
@@ -105,8 +105,8 @@ export async function login(req: Request, res: Response) {
         })
 
         const jwtPayload = { email: user.email, role: user.role }
-        console.log(jwtPayload)
-        const token = sign(jwtPayload, 'psst', { expiresIn: "10" })
+        // console.log(jwtPayload)
+        const token = sign(jwtPayload, 'psst', { expiresIn: "1hr" })
 
         return res.status(200).send(
             {

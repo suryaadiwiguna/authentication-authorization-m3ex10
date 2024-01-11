@@ -11,9 +11,9 @@ type User = {
 
 export async function verifyToken(req: Request, res: Response, next: NextFunction) {
     try {
-        console.log(req.headers)
+        // console.log(req.headers)
         const token = req.headers.authorization?.replace("Bearer ", "")
-        console.log(token)
+        // console.log(token)
 
         if (!token) {
             return res.status(400).send("Unauthorized")
@@ -38,7 +38,7 @@ export async function verifyToken(req: Request, res: Response, next: NextFunctio
 
 export async function adminGuard(req: Request, res: Response, next: NextFunction) {
     try {
-        console.log("adminGuard")
+        // console.log("adminGuard")
         console.log(req.user)
         if (req.user?.role !== 'admin') return res.status(401).send("Unauthorized")
 
